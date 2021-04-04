@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.atritripathi.musk.R
 
-class LaunchFragment : Fragment(R.layout.crew_fragment) {
+class LaunchFragment : Fragment(R.layout.launch_fragment) {
 
     private val viewModel: LaunchViewModel by viewModels()
 

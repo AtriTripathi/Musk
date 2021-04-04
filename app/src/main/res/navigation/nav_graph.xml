@@ -8,6 +8,16 @@
     <fragment
         android:id="@+id/rocketFragment"
         android:name="com.atritripathi.musk.rocket.RocketFragment"
-        android:label="rocket_fragment"
+        android:label="Rockets"
         tools:layout="@layout/rocket_fragment" />
+    <fragment
+        android:id="@+id/launchFragment"
+        android:name="com.atritripathi.musk.launch.LaunchFragment"
+        android:label="Launches"
+        tools:layout="@layout/launch_fragment" />
+    <fragment
+        android:id="@+id/crewFragment"
+        android:name="com.atritripathi.musk.crew.CrewFragment"
+        android:label="Crew"
+        tools:layout="@layout/crew_fragment" />
 </navigation>

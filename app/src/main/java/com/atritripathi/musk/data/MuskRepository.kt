@@ -17,6 +17,7 @@ class MuskRepository @Inject constructor(
 
     fun getRockets() = networkBoundResource(
         query = {
+
             rocketDao.getRockets()
         },
         fetch = {

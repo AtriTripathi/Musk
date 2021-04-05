@@ -31,8 +31,9 @@ class RocketFragment : Fragment(R.layout.rocket_fragment), OnRocketClickListener
             }
         }
 
-        viewModel.rockets.observe(viewLifecycleOwner) { rockets ->
-            rocketAdapter.submitList(rockets)
+        viewModel.rockets.observe(viewLifecycleOwner) { result ->
+            rocketAdapter.submitList(result.data)
+
         }
     }
 

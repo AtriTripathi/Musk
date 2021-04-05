@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id "androidx.navigation.safeargs.kotlin"
 }
 
 android {
@@ -81,7 +82,11 @@ dependencies {
     // Fragment
     implementation 'androidx.fragment:fragment-ktx:1.3.2'
 
+    // Retrofit + Moshi
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
     implementation("com.squareup.moshi:moshi-kotlin:1.11.0")
+
+    // Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 }

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.atritripathi.musk.R
 import com.atritripathi.musk.data.model.Rocket
@@ -12,7 +13,8 @@ import com.atritripathi.musk.rocket.RocketAdapter.RocketViewHolder
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
-class RocketAdapter : ListAdapter<Rocket, RocketViewHolder>(ROCKET_COMPARATOR) {
+class RocketAdapter(private val listener: OnRocketClickListener) :
+    ListAdapter<Rocket, RocketViewHolder>(ROCKET_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RocketViewHolder {
         val binding = RocketItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -24,7 +26,19 @@ class RocketAdapter : ListAdapter<Rocket, RocketViewHolder>(ROCKET_COMPARATOR) {
         currentRocket?.let { holder.bind(it) }
     }
 
-    class RocketViewHolder(private val binding: RocketItemBinding) : ViewHolder(binding.root) {
+    inner class RocketViewHolder(private val binding: RocketItemBinding) :
+        ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val item = getItem(position)
+                    item?.let { listener.onClick(it) }
+                }
+            }
+        }
+
         fun bind(rocket: Rocket) {
             with(binding) {
                 Glide.with(itemView)
@@ -38,6 +52,10 @@ class RocketAdapter : ListAdapter<Rocket, RocketViewHolder>(ROCKET_COMPARATOR) {
                 tvDescription.text = rocket.description
             }
         }
+    }
+
+    interface OnRocketClickListener {
+        fun onClick(rocket: Rocket)
     }
 
     companion object {

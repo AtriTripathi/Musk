@@ -1,4 +1,4 @@
-package com.atritripathi.musk.launch
+package com.atritripathi.musk.features.launch
 
 import androidx.lifecycle.ViewModel
 

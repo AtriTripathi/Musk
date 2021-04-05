@@ -1,4 +1,4 @@
-package com.atritripathi.musk.rocket
+package com.atritripathi.musk.features.rocket
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

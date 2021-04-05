@@ -1,4 +1,4 @@
-package com.atritripathi.musk.rocket
+package com.atritripathi.musk.features.rocket
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.atritripathi.musk.R
 import com.atritripathi.musk.data.model.Rocket
 import com.atritripathi.musk.databinding.RocketFragmentBinding
-import com.atritripathi.musk.rocket.RocketAdapter.OnRocketClickListener
+import com.atritripathi.musk.features.rocket.RocketAdapter.OnRocketClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,7 +37,7 @@ class RocketFragment : Fragment(R.layout.rocket_fragment), OnRocketClickListener
     }
 
     override fun onClick(rocket: Rocket) {
-        val action = RocketFragmentDirections.actionGlobalWebViewFragment(rocket.url)
+        val action = RocketFragmentDirections.actionGlobalWebViewFragment(rocket.wikiUrl)
         findNavController().navigate(action)
     }
 

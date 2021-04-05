@@ -1,7 +1,7 @@
-package com.atritripathi.musk.crew
+package com.atritripathi.musk.features.crew
 
 import androidx.lifecycle.ViewModel
 
 class CrewViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+
 }

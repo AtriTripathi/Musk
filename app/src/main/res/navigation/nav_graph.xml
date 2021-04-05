@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/rocketFragment"
-        android:name="com.atritripathi.musk.rocket.RocketFragment"
+        android:name="com.atritripathi.musk.features.rocket.RocketFragment"
         android:label="Rockets"
         tools:layout="@layout/rocket_fragment" />
     <fragment
         android:id="@+id/launchFragment"
-        android:name="com.atritripathi.musk.launch.LaunchFragment"
+        android:name="com.atritripathi.musk.features.launch.LaunchFragment"
         android:label="Launches"
         tools:layout="@layout/launch_fragment" />
     <fragment
         android:id="@+id/crewFragment"
-        android:name="com.atritripathi.musk.crew.CrewFragment"
+        android:name="com.atritripathi.musk.features.crew.CrewFragment"
         android:label="Crew"
         tools:layout="@layout/crew_fragment" />
     <fragment

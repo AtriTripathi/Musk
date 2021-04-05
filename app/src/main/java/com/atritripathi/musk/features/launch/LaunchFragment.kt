@@ -1,4 +1,4 @@
-package com.atritripathi.musk.crew
+package com.atritripathi.musk.features.launch
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -9,12 +9,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.atritripathi.musk.R
 
-class CrewFragment : Fragment(R.layout.crew_fragment) {
+class LaunchFragment : Fragment(R.layout.launch_fragment) {
 
-    private val viewModel: CrewViewModel by viewModels()
+    private val viewModel: LaunchViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
-
 }

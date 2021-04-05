@@ -1,4 +1,4 @@
-package com.atritripathi.musk.rocket
+package com.atritripathi.musk.features.rocket
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.atritripathi.musk.R
 import com.atritripathi.musk.data.model.Rocket
 import com.atritripathi.musk.databinding.RocketItemBinding
-import com.atritripathi.musk.rocket.RocketAdapter.RocketViewHolder
+import com.atritripathi.musk.features.rocket.RocketAdapter.RocketViewHolder
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 

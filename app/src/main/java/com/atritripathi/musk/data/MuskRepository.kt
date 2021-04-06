@@ -14,10 +14,10 @@ class MuskRepository @Inject constructor(
     private val db: MuskDatabase
 ) {
     private val rocketDao = db.rocketDao()
+    private val crewDao = db.crewDao()
 
     fun getRockets() = networkBoundResource(
         query = {
-
             rocketDao.getRockets()
         },
         fetch = {
@@ -27,8 +27,26 @@ class MuskRepository @Inject constructor(
         saveFetchResult = { rockets ->
             db.withTransaction {
                 with(rocketDao) {
-                    deleteAllRockets()
+                    deleteRockets()
                     insert(rockets)
+                }
+            }
+        }
+    )
+
+    fun getCrew() = networkBoundResource(
+        query = {
+            crewDao.getCrew()
+        },
+        fetch = {
+            delay(2000)
+            api.getCrew()
+        },
+        saveFetchResult = { crew ->
+            db.withTransaction {
+                with(crewDao) {
+                    deleteCrew()
+                    insert(crew)
                 }
             }
         }

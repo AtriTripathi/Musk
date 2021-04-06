@@ -28,7 +28,6 @@ class RocketAdapter(private val listener: OnRocketClickListener) :
 
     inner class RocketViewHolder(private val binding: RocketItemBinding) :
         ViewHolder(binding.root) {
-
         init {
             binding.root.setOnClickListener {
                 val position = adapterPosition

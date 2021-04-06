@@ -4,18 +4,18 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.atritripathi.musk.data.model.Rocket
+import com.atritripathi.musk.data.model.Crew
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface RocketDao {
+interface CrewDao {
 
-    @Query("SELECT * FROM rocket_table")
-    fun getRockets(): Flow<List<Rocket>>
+    @Query("SELECT * FROM crew_table")
+    fun getCrew(): Flow<List<Crew>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(rockets: List<Rocket>)
+    suspend fun insert(crew: List<Crew>)
 
-    @Query("DELETE FROM rocket_table")
-    suspend fun deleteRockets()
+    @Query("DELETE FROM crew_table")
+    suspend fun deleteCrew()
 }

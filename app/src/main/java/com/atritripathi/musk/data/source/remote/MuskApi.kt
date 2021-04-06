@@ -1,5 +1,6 @@
 package com.atritripathi.musk.data.source.remote
 
+import com.atritripathi.musk.data.model.Crew
 import com.atritripathi.musk.data.model.Rocket
 import retrofit2.http.GET
 
@@ -11,5 +12,8 @@ interface MuskApi {
 
     @GET("rockets")
     suspend fun getRockets(): List<Rocket>
+
+    @GET("crew")
+    suspend fun getCrew(): List<Crew>
 
 }

@@ -24,10 +24,12 @@
         android:id="@+id/webViewFragment"
         android:name="com.atritripathi.musk.WebViewFragment"
         android:label="fragment_web_view"
-        tools:layout="@layout/web_view_fragment" >
+        tools:layout="@layout/web_view_fragment">
         <argument
             android:name="url"
             app:argType="string" />
     </fragment>
-    <action android:id="@+id/action_global_webViewFragment" app:destination="@id/webViewFragment" />
+    <action
+        android:id="@+id/action_global_webViewFragment"
+        app:destination="@id/webViewFragment" />
 </navigation>

@@ -36,8 +36,8 @@ class RocketFragment : Fragment(R.layout.rocket_fragment), OnRocketClickListener
         viewModel.rockets.observe(viewLifecycleOwner) { result ->
             rocketAdapter.submitList(result.data)
             with(binding) {
-                lottieLoadingAnim.isVisible = result is Result.Loading && result.data.isNullOrEmpty()
-                lottieErrorAnim.isVisible = result is Result.Error && result.data.isNullOrEmpty()
+                loadingAnim.isVisible = result is Result.Loading && result.data.isNullOrEmpty()
+                errorAnim.isVisible = result is Result.Error && result.data.isNullOrEmpty()
                 tvError.isVisible = result is Result.Error && result.data.isNullOrEmpty()
                 tvError.text = result.error?.localizedMessage
             }

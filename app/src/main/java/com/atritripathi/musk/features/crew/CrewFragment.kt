@@ -18,7 +18,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class CrewFragment : Fragment(R.layout.crew_fragment), OnCrewClickListener {
 
     private val viewModel: CrewViewModel by viewModels()
-
     private var _binding: CrewFragmentBinding? = null
     private val binding get() = _binding!!
 
@@ -44,7 +43,6 @@ class CrewFragment : Fragment(R.layout.crew_fragment), OnCrewClickListener {
                 tvError.text = result.error?.localizedMessage
             }
         }
-
     }
 
     override fun onClick(crew: Crew) {
@@ -56,5 +54,4 @@ class CrewFragment : Fragment(R.layout.crew_fragment), OnCrewClickListener {
         super.onDestroyView()
         _binding = null
     }
-
 }

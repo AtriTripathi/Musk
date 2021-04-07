@@ -1,43 +1,40 @@
 package com.atritripathi.musk.data.model
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 
 @Entity(tableName = "launch_table")
 data class Launch(
     @Json(name = "id")
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "id")
-    val id: String,
+    val id: String = "",
 
     @Json(name = "name")
     @ColumnInfo(name = "name")
-    val name: String,
+    val name: String = "",
 
     @Json(name = "success")
     @ColumnInfo(name = "success")
-    val success: Boolean,
+    val success: Boolean? = false,
+
+    @Json(name = "details")
+    @ColumnInfo(name = "details")
+    val details: String? = "",
 
     @Json(name = "date_unix")
     @ColumnInfo(name = "date_unix")
-    val date: Long,
-
-    @Json(name = "links")
-    @ColumnInfo(name = "link")
-    val link: Link
+    val date: Long = 0
 ) {
-    data class Link(
-        @Json(name = "wikipedia")
-        val wikiUrl: String,
-
-        @Json(name = "flickr")
-        val flickr: Flickr
-    )
-
-    data class Flickr(
-        @Json(name = "original")
-        val url: List<String>
-    )
+    val formattedDate: String?
+        @RequiresApi(Build.VERSION_CODES.O)
+        get() = Instant.ofEpochSecond(date).atZone(ZoneId.systemDefault()).toLocalDate()
+            .format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
 }

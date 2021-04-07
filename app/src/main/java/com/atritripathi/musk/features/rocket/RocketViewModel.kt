@@ -10,6 +10,5 @@ import javax.inject.Inject
 class RocketViewModel @Inject constructor(
     private val repository: MuskRepository
 ) : ViewModel() {
-
     val rockets = repository.getRockets().asLiveData()
 }

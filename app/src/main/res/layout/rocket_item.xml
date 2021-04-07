@@ -17,8 +17,9 @@
 
         <ImageView
             android:id="@+id/ivRocket"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="172dp"
+            android:layout_height="202dp"
+            android:contentDescription="@string/cd_rocket_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -34,6 +35,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tvFirstFlight"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivRocket"
@@ -61,7 +63,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="16dp"
             android:ellipsize="end"
-            android:maxLines="4"
+            android:maxLines="6"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tvFirstFlight"

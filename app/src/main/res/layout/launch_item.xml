@@ -7,8 +7,8 @@
     android:layout_marginStart="8dp"
     android:layout_marginTop="6dp"
     android:layout_marginEnd="8dp"
-    android:layout_marginBottom="6dp"
-    app:cardCornerRadius="12dp"
+    android:layout_marginBottom="2dp"
+    app:cardCornerRadius="2dp"
     app:cardElevation="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,7 +51,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:ellipsize="end"
-            android:maxLines="6"
+            android:maxLines="8"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -67,6 +67,7 @@
             android:layout_marginEnd="16dp"
             android:checkable="true"
             android:checked="true"
+            android:textColor="@color/white"
             app:chipBackgroundColor="@color/chip_color_states"
             app:chipIconVisible="true"
             app:layout_constraintBottom_toBottomOf="@+id/tvLaunchName"

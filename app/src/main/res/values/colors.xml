@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#1b1b1b</color>
+    <color name="primaryDark">@color/black</color>
+    <color name="secondary">#b14618</color>
+
+    <color name="success">#039216</color>
+    <color name="failure">#df0505</color>
+
+    <color name="windowBackground">#eddedf</color>
 </resources>

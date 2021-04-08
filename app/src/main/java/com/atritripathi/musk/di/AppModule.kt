@@ -2,6 +2,7 @@ package com.atritripathi.musk.di
 
 import android.app.Application
 import androidx.room.Room
+import com.atritripathi.musk.BuildConfig
 import com.atritripathi.musk.data.source.local.MuskDatabase
 import com.atritripathi.musk.data.source.local.MuskDatabase.Companion.DATABASE_NAME
 import com.atritripathi.musk.data.source.remote.MuskApi
@@ -12,6 +13,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import okhttp3.logging.HttpLoggingInterceptor.Level.BODY
+import okhttp3.logging.HttpLoggingInterceptor.Level.NONE
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
@@ -30,11 +35,20 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(moshi: Moshi): Retrofit =
-        Retrofit.Builder()
+    fun provideRetrofit(moshi: Moshi): Retrofit {
+        val logging = HttpLoggingInterceptor().apply {
+            level = if (BuildConfig.DEBUG) BODY else NONE
+        }
+        val okHttpClient = OkHttpClient.Builder()
+            .addInterceptor(logging)
+            .build()
+
+        return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .client(okHttpClient)
             .build()
+    }
 
     @Provides
     @Singleton

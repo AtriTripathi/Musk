@@ -1,6 +1,6 @@
 # Musk
 It is a modern Android app that uses SpaceX API to display all the Rockets, Launches, and Crew members. It uses Clean Architecture with Repository Pattern for robust local DB caching.
-> Download the debug APK from [Releases](https://github.com/AtriTripathi/Tasks/).
+> Download the debug APK from [Releases](https://github.com/AtriTripathi/Tasks/releases/).
 
 ## Screens
 <img src="./assets/rockets_gif.gif" width="30%">&ensp;<img src="./assets/crew_gif.gif" width="30%">&ensp;<img src="./assets/launches_gif.gif" width="30%">

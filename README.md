@@ -49,6 +49,10 @@ Glide is the image library used in this app. It is fast and offers more fine-gra
 ### [Timber Logging](https://github.com/JakeWharton/timber)
 `Timber` is a logger with a small, extensible API which provides utility on top of Android's normal Log class. It has been used for debugging purposes.
 
+## Future Changes
+* Extract the business logic from `ViewModels` into `UseCases` as part of a `Domain` layer in the Clean Architecture. This ensures an even better Seperation of Concerns among the components involved, and also aids testing.
+* As part of `Moshi`, replace the `Reflection` based adapters for Kotlin with `CodeGen` ones. This can make the serialization/deserialization process between JSON and Data Models much faster.
+
 ## Developed By
 
 ### Atri Tripathi

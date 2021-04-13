@@ -3,6 +3,8 @@ package com.atritripathi.musk.di
 import android.app.Application
 import androidx.room.Room
 import com.atritripathi.musk.BuildConfig
+import com.atritripathi.musk.data.DefaultMuskRepository
+import com.atritripathi.musk.data.MuskRepository
 import com.atritripathi.musk.data.source.local.MuskDatabase
 import com.atritripathi.musk.data.source.local.MuskDatabase.Companion.DATABASE_NAME
 import com.atritripathi.musk.data.source.remote.MuskApi
@@ -37,7 +39,7 @@ class AppModule {
     @Singleton
     fun provideRetrofit(moshi: Moshi): Retrofit {
         val logging = HttpLoggingInterceptor().apply {
-            level = if (BuildConfig.DEBUG) BODY else NONE
+            level = if (BuildConfig.DEBUG) BODY else NONE   // Only log Json while in debug mode
         }
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(logging)
@@ -60,5 +62,19 @@ class AppModule {
     fun provideDatabase(app: Application): MuskDatabase =
         Room.databaseBuilder(app, MuskDatabase::class.java, DATABASE_NAME)
             .build()
+
+    /**
+     * Generally, we don't need to provide a Repository because we are already providing
+     * the `MuskApi` and `MuskDatabase`, and so Dagger-Hilt already knows how to create it.
+     * But because we are using Repository as an Interface i.e. MuskInterface in our ViewModels,
+     * we need to provide a concrete implementation of it like `DefaultMuskRepository` and
+     * explicitly cast it as `MuskRepository`.
+     */
+    @Provides
+    @Singleton
+    fun provideDefaultMuskRepository(
+        api: MuskApi,
+        db: MuskDatabase
+    ) = DefaultMuskRepository(api, db) as MuskRepository
 
 }
